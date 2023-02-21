@@ -18,7 +18,7 @@ const Header = () => {
         {/* end-nav */}
         <div className='bg-yellow'>
             <div className='flex justify-between items-center h-[2.7rem] w-[90%] mx-auto'>
-                <img src="https://dukiagoldrefinery.co/images/logo_centre_web.png" alt="dukia" className='h-[1.7rem] w-[1.7rem]' />
+                <img src="https://dukiagoldrefinery.co/images/logo_centre_web.png" alt="dukia" className='h-[2rem] w-[2rem]' />
                 <div className='hidden md:flex justify-between w-[40%] '>
                     <NavLink to={'/'} style={({isActive})=>{return {color : isActive ? 'white' : 'black'}}}>Home</NavLink>
                     <a href='https://dukiagoldrefinery.co' target='_blank' rel="noreferrer">About</a>
