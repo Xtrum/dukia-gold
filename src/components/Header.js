@@ -1,18 +1,18 @@
 import React from 'react'
 import {FaBars} from 'react-icons/fa';
 import {AiOutlineShoppingCart,AiOutlineLock,AiOutlineSearch} from 'react-icons/ai';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 const Header = () => {
   return (
-    <nav>
+    <nav className='sticky top-0 w-full z-[99] '>
         {/* top-nav */}
-        <div className=''>
-            <div className=' flex justify-between items-center h-[2.5rem] w-[90%] mx-auto'>
+        <div className='bg-white'>
+            <div className='flex justify-between items-center h-[2.5rem] w-[90%] mx-auto'>
                 <div className='w-[4rem] justify-between items-center flex'>
                     <p>buy</p>
                     <p>sell</p>
                 </div>
-                <button className='bg-blue py-1 px-6 rounded-md text-white w-[10rem]'>Get Started</button>
+                <Link to='/register'><button className='bg-blue py-1 px-6 rounded-md text-white w-[10rem]'>Get Started</button></Link>
             </div>
         </div>
         {/* end-nav */}
@@ -25,7 +25,7 @@ const Header = () => {
                     <NavLink to={'/goldbars'} style={({isActive})=>{return {color : isActive ? 'white' : 'black'}}}>Buy Gold</NavLink>
                     <NavLink to={'/goldcoins'} style={({isActive})=>{return {color : isActive ? 'white' : 'black'}}}>Buy Coin</NavLink>
                 </div>
-                <div className='flex w-[30%] justify-between md:w-[15%]'>
+                <div className='flex w-[35%] justify-between md:w-[15%]'>
                     <AiOutlineSearch size={'1.3rem'}/>
                     <AiOutlineShoppingCart size={'1.3rem'}/>
                     <AiOutlineLock size={'1.3rem'}/>
