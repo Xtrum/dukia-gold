@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import BreadCrumb from "../components/Breadcrumb";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [value, setValue] = useState("");
@@ -198,6 +199,11 @@ const Register = () => {
             Create Account
           </button>
         </form>
+        <Link to="Login">
+          <p className="text-yellow-700 mt-4 text-center hover:underline">
+            Already have an account? Log in
+          </p>
+        </Link>
       </section>
     </>
   );
