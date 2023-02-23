@@ -3,11 +3,10 @@ import { useState } from "react";
 import BreadCrumb from "../components/Breadcrumb";
 
 const Register = () => {
-  const [other, setOther] = useState(false);
+  const [value, setValue] = useState("");
+  const [corporate, setCorporate] = useState(false);
   const [agree, setAgree] = useState(false);
-  // const inputClassName = () => {
-  //   return "w-[100%] focus:shadow outline-none  border rounded caret-black text-start p-2 text-md";
-  // };
+
   return (
     <>
       <BreadCrumb />
@@ -31,24 +30,38 @@ const Register = () => {
           <div className="flex flex-row w-[100%] flex-start">
             <label className="flex flex-row mr-[200px] content-center">
               <input
-                name="personal"
+                name="ACC"
+                onClick={() => setCorporate(false)}
                 className="mx-1"
                 value="Personal Account"
-                type="checkbox"
+                type="radio"
               />
               Personal Account
             </label>
 
             <label className="flex flex-row content-center">
               <input
-                name="corporate"
+                name="ACC"
                 className="mx-1"
+                onClick={() => setCorporate(true)}
                 value="Corporate Account"
-                type="checkbox"
+                type="radio"
               />
               Corporate Account
             </label>
           </div>
+
+          {corporate && (
+            <label className="flex flex-col text-cyan-700 gap-2">
+              Entity Name
+              <input
+                required
+                type="text"
+                autoCapitalize="true"
+                className="focus:shadow outline-none  border rounded caret-black text-start p-2 text-md"
+              />
+            </label>
+          )}
           {/* Names input */}
           <div className="text-cyan-700 w-[100%] flex flex-col justify-between md:flex-row">
             <label className="w-[100%] flex flex-col gap-2 p-1">
@@ -124,28 +137,16 @@ const Register = () => {
                 <option value="template-01" />
                 <option value="template-02" />
                 <option value="template-03" />
-                <option value="template-04" onSelect={() => setOther(true)} />
+                <option value="template-04" />
               </datalist>
             </label>
           </div>
 
           <label className="w-[100%] text-cyan-700">
             Did someone refer you?
-            {/* <input
-              name="referral"
-              placeholder="No one referred me"
-              list="referral"
-              className="w-[100%] focus:shadow outline-none  border rounded caret-black text-start p-2 text-md"
-            /> */}
-            {/* <datalist id="referral">
-              <option value="registration.relative-friend" />
-              <option value="registration.business-contact" />
-              <option value="registration.corporative-service-provider" />
-              <option value="Authorized Partner of Dukia" />
-              <option value="Other" onClick={() => setOther(true)} />
-            </datalist> */}
             <select
               placeholder="No one referred me"
+              onChange={(e) => setValue(e.target.value)}
               className="w-[100%] focus:shadow outline-none  border rounded caret-black text-black p-2 text-md">
               <option value="registration.relative-friend">
                 registration.relative-friend
@@ -162,8 +163,10 @@ const Register = () => {
               <option value="Other">Other</option>
             </select>
           </label>
+
+          {/* Other referral option input */}
           <div>
-            {other && (
+            {value === "Other" && (
               <label>
                 Please Specify
                 <input
