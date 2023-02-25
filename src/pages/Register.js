@@ -146,7 +146,7 @@ const Register = () => {
           <label className="w-[100%] text-cyan-700">
             Did someone refer you?
             <select
-              placeholder="No one referred me"
+              value="No one referred me"
               onChange={(e) => setValue(e.target.value)}
               className="w-[100%] focus:shadow outline-none  border rounded caret-black text-black p-2 text-md">
               <option value="registration.relative-friend">
@@ -199,7 +199,7 @@ const Register = () => {
             Create Account
           </button>
         </form>
-        <Link to="Login">
+        <Link to="/Login">
           <p className="text-yellow-700 mt-4 text-center hover:underline">
             Already have an account? Log in
           </p>
